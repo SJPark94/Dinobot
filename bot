@@ -1,0 +1,35 @@
+from PIL import ImageGrab, ImageOps
+import pyautogui
+import time
+from numpy import *
+
+class Coordinates():
+    replayButton = (420, 390)
+    dinosaur = (160, 400)
+    test = (285, 430)
+    # x when to jump: 210
+    # y lowest target: 408
+def restartGame():
+        pyautogui.click(Coordinates.replayButton)
+        pyautogui.click(Coordinates.replayButton)
+
+def pressSpace():
+    for i in range(100):
+        pyautogui.keyDown('space')
+        time.sleep(0.05)
+        pyautogui.keyUp('space')
+
+def imageGrab():
+    box = (Coordinates.dinosaur[0] + 120, Coordinates.dinosaur[1], Coordinates.dinosaur[0] + 200, Coordinates.dinosaur[1] + 60)
+    image = ImageGrab.grab(box)
+    grayImage = ImageOps.grayscale(image)
+    a = array(grayImage.getcolors())
+    print(a.sum())
+    return a.sum()
+
+
+pressSpace() 
+
+restartGame()
+time.sleep(1)
+pressSpace()
