@@ -1,2 +1,2 @@
 # Dinobot
-Basic Python Script to play Chrome's Dinosaur Bot
+Uncompleted Basic Python Script to play Chrome's Dinosaur Bot
